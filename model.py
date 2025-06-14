@@ -4,6 +4,7 @@ import tensorflow.keras.layers as tfkl
 from tensorflow.keras.regularizers import l2
 
 IMG_SIZE = 150
+class_indices = ["Uninfected", "Parasitized"]
 
 model = tfk.Sequential([
     tfkl.Conv2D(32, kernel_size=3, strides=1, kernel_regularizer=l2(0.0001), input_shape=(IMG_SIZE, IMG_SIZE, 3)),
