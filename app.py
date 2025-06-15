@@ -25,6 +25,11 @@ async def predict(file: UploadFile = File(...)):
         img = tfk.utils.load_img(io.BytesIO(img_contents), color_mode="rgb", target_size=(IMG_SIZE, IMG_SIZE))
         img_arr = np.array([img])
         
+        print(img_arr)
+        
+        # normalise values (the model expects in-range values)
+        # img_arr = img_arr.astype("float32") / 255.0
+        
         # get preds
         preds = model.predict(img_arr).round().astype(int)
         pred = preds[0, 0]
