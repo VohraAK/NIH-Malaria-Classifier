@@ -2,11 +2,20 @@ import io
 import numpy as np
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 from model import IMG_SIZE, class_indices
 import tensorflow.keras as tfk
 import tensorflow.keras.layers as tfkl
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # Frontend URL (adjust if needed)
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all methods
+    allow_headers=["*"],  # Allow all headers
+)
 
 model = tfk.models.load_model("malaria_classifier.keras")
 # print(model.summary())

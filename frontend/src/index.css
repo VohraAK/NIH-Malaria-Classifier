@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Matangi:wght@300..900&display=swap');
+@import "tailwindcss";
 
 .font-matangi {
   font-family: 'Matangi', sans-serif;
@@ -8,5 +8,5 @@
 body
 {
   background-color: #332D56;
-  color: #E3EEB2;
+  /* color: #E3EEB2; */
 }
