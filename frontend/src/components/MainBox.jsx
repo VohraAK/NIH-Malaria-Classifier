@@ -25,7 +25,8 @@ export default function MainBox() {
     formData.append("file", files);
 
     try {
-      const response = await fetch("http://localhost:8000/predict", {
+      const api = import.meta.env.VITE_API_URL
+      const response = await fetch(`${api}/predict`, {
         method: "POST",
         body: formData,
       });
@@ -77,7 +78,7 @@ export default function MainBox() {
               onDiagnose();
             }}
           >
-            Diagnose
+            {isLoading ? "Loading" : "Diagnose"}
           </button>
 
           {results && (
