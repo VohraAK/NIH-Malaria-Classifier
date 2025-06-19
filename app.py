@@ -11,7 +11,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Frontend URL (adjust if needed)
+    allow_origins=["https://nih-malaria-classifier-9999.vercel.app/"],  # Frontend URL (adjust if needed)
     allow_credentials=True,
     allow_methods=["*"],  # Allow all methods
     allow_headers=["*"],  # Allow all headers
